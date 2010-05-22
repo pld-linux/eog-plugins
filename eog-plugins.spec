@@ -19,11 +19,13 @@ BuildRequires:	gtk+2-devel >= 2:2.20.0
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libchamplain-devel >= 0.4.0
 BuildRequires:	libexif-devel >= 0.6.16
+BuildRequires:	libgdata-devel
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	python-devel >= 1:2.3
 BuildRequires:	python-gnome-devel >= 2.20.0
 BuildRequires:	python-pygtk-devel >= 2.12.0
+BuildRequires:	rpm-pythonprov
 Requires:	eog >= 2.30.0
 Suggests:	postr
 Suggests:	python-pygtk-gtk >= 2.12.0
