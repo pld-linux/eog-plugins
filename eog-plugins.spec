@@ -2,7 +2,7 @@ Summary:	A collection of plugins for the EOG image viewer
 Summary(pl.UTF-8):	Zestaw wtyczek do przeglądarki obrazków EOG
 Name:		eog-plugins
 Version:	2.30.1
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/eog-plugins/2.30/%{name}-%{version}.tar.bz2
@@ -17,7 +17,7 @@ BuildRequires:	eog-devel >= 2.30.0
 BuildRequires:	gettext-devel
 BuildRequires:	gtk+2-devel >= 2:2.20.0
 BuildRequires:	intltool >= 0.40.0
-BuildRequires:	libchamplain-devel >= 0.4.0
+BuildRequires:	libchamplain-devel >= 0.6.0
 BuildRequires:	libexif-devel >= 0.6.16
 BuildRequires:	libgdata-devel
 BuildRequires:	libtool
