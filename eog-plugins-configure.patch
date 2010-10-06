@@ -36,8 +36,8 @@ diff -urN eog-plugins-2.28.1/configure.ac eog-plugins-2.28.1.new/configure.ac
  	PKG_CHECK_MODULES(CHAMPLAIN,
 -		[ champlain-0.4 >= 0.4,
 -		  champlain-gtk-0.4 >= 0.4,
-+		[ champlain-0.6 >= 0.6,
-+		  champlain-gtk-0.6 >= 0.6,
++		[ champlain-0.8 >= 0.8,
++		  champlain-gtk-0.8 >= 0.8,
  		  clutter-gtk-0.10 >= 0.10,
  		  libexif >= 0.6.16 ],
  		[],[have_libchamplain=no])
