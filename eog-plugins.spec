@@ -17,7 +17,7 @@ BuildRequires:	eog-devel >= 3.0.0
 BuildRequires:	gettext-devel
 BuildRequires:	gtk+3-devel >= 3.0.0
 BuildRequires:	intltool >= 0.40.0
-BuildRequires:	libchamplain-devel >= 0.8.0
+BuildRequires:	libchamplain-devel >= 0.10.0
 BuildRequires:	libexif-devel >= 0.6.16
 BuildRequires:	libgdata-devel
 BuildRequires:	libpeas-devel >= 1.0.0
@@ -82,8 +82,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{pluginsdir}/libfit-to-width.so
 %{pluginsdir}/fit-to-width.plugin
 
-#%%attr(755,root,root) %{pluginsdir}/libmap.so
-#%%{pluginsdir}/map.eog-plugin
+%attr(755,root,root) %{pluginsdir}/libmap.so
+%{pluginsdir}/map.plugin
 
 #%%attr(755,root,root) %{pluginsdir}/libpostasa.so
 #%%{pluginsdir}/postasa.eog-plugin
