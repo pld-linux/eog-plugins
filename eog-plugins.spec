@@ -7,7 +7,6 @@ License:	GPL v2
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/eog-plugins/2.91/%{name}-%{version}.tar.bz2
 # Source0-md5:	fd6363623024a61307d7de1bc9bd334f
-Patch0:		%{name}-configure.patch
 URL:		http://live.gnome.org/EyeOfGnome/Plugins
 BuildRequires:	GConf2-devel
 BuildRequires:	autoconf >= 2.59
@@ -44,7 +43,6 @@ GNOME (Oko GNOME).
 
 %prep
 %setup -q
-#%%patch0 -p1
 
 %build
 %{__intltoolize}
