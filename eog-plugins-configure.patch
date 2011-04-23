@@ -1,0 +1,17 @@
+--- eog-plugins-3.0.0/configure.ac.configure	2011-04-23 14:37:47.643094161 +0200
++++ eog-plugins-3.0.0/configure.ac	2011-04-23 14:38:24.049563598 +0200
+@@ -223,14 +223,6 @@ done
+ # Postr 
+ # *****
+ plugin_defined postr
+-if test "$?" = 1
+-then
+-	AC_PATH_PROG(POSTR, postr)
+-	if test -z "$POSTR"
+-	then
+-		undef_plugin postr "postr was not found"
+-	fi
+-fi
+ 
+ # *******
+ # Postasa
