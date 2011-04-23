@@ -1,17 +1,14 @@
-#
-# TODO: drop or restore postr and postasa plugins
-#
 Summary:	A collection of plugins for the EOG image viewer
 Summary(pl.UTF-8):	Zestaw wtyczek do przeglądarki obrazków EOG
 Name:		eog-plugins
-Version:	2.91.90
+Version:	3.0.0
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/eog-plugins/2.91/%{name}-%{version}.tar.bz2
-# Source0-md5:	fd6363623024a61307d7de1bc9bd334f
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/eog-plugins/3.0/%{name}-%{version}.tar.bz2
+# Source0-md5:	edb9077cce66e3969c62c084d446c495
+Patch0:		%{name}-configure.patch
 URL:		http://live.gnome.org/EyeOfGnome/Plugins
-BuildRequires:	GConf2-devel
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	clutter-gtk-devel >= 0.10.0
@@ -21,17 +18,17 @@ BuildRequires:	gtk+3-devel >= 3.0.0
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libchamplain-devel >= 0.10.0
 BuildRequires:	libexif-devel >= 0.6.16
-BuildRequires:	libgdata-devel
+BuildRequires:	libgdata-devel >= 0.8.0
 BuildRequires:	libpeas-devel >= 1.0.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	python-devel >= 1:2.3
-BuildRequires:	python-gnome-devel >= 2.20.0
-BuildRequires:	python-pygtk-devel >= 2.12.0
 BuildRequires:	rpm-pythonprov
-Requires:	eog >= 2.30.0
+BuildRequires:	rpmbuild(macros) >= 1.592
+Requires(post,postun):	glib2 >= 1:2.26.0
+Requires:	eog >= 3.0.0
 Suggests:	postr
-Suggests:	python-pygtk-gtk >= 2.12.0
+Suggests:	python-pygobject >= 2.28.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		pluginsdir	%{_libdir}/eog/plugins
@@ -46,6 +43,7 @@ GNOME (Oko GNOME).
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__intltoolize}
@@ -71,6 +69,12 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post
+%glib_compile_schemas
+
+%postun
+%glib_compile_schemas
+
 %files -f eog-plugins.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
@@ -86,12 +90,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{pluginsdir}/libmap.so
 %{pluginsdir}/map.plugin
 
-#%%attr(755,root,root) %{pluginsdir}/libpostasa.so
-#%%{pluginsdir}/postasa.eog-plugin
-#%%{pluginsdir}/postasa
-
-#%%attr(755,root,root) %{pluginsdir}/libpostr.so
-#%%{pluginsdir}/postr.eog-plugin
+%attr(755,root,root) %{pluginsdir}/libpostr.so
+%{pluginsdir}/postr.plugin
 
 %{pluginsdir}/console.py[co]
 %{pluginsdir}/pythonconsole.py[co]
