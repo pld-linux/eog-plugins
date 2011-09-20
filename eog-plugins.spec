@@ -2,12 +2,13 @@ Summary:	A collection of plugins for the EOG image viewer
 Summary(pl.UTF-8):	Zestaw wtyczek do przeglądarki obrazków EOG
 Name:		eog-plugins
 Version:	3.1.2
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/eog-plugins/3.1/%{name}-%{version}.tar.xz
 # Source0-md5:	ac31d5a89661ca502cd05a366908483b
 Patch0:		%{name}-configure.patch
+Patch1:		champlain-0.12.patch
 URL:		http://live.gnome.org/EyeOfGnome/Plugins
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
@@ -16,7 +17,7 @@ BuildRequires:	eog-devel >= 3.0.0
 BuildRequires:	gettext-devel
 BuildRequires:	gtk+3-devel >= 3.0.0
 BuildRequires:	intltool >= 0.40.0
-BuildRequires:	libchamplain-devel >= 0.10.0
+BuildRequires:	libchamplain-devel >= 0.12.0
 BuildRequires:	libexif-devel >= 0.6.16
 BuildRequires:	libgdata-devel >= 0.8.0
 BuildRequires:	libpeas-devel >= 1.0.0
@@ -46,6 +47,7 @@ GNOME (Oko GNOME).
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__intltoolize}
