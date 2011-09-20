@@ -1,0 +1,23 @@
+commit afa73a4b0663888e8fa0dc50bd51d98540e5cf37
+Author: Claudio Saavedra <csaavedra@igalia.com>
+Date:   Fri Sep 9 12:38:21 2011 +0300
+
+    Bump libchamplain dependency to 0.12
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=658349
+
+diff --git a/configure.ac b/configure.ac
+index 41e93d3..7a52cc3 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -262,8 +262,8 @@ if test "$?" = 1
+ then
+ 	
+ 	PKG_CHECK_MODULES(CHAMPLAIN,
+-		[ champlain-0.10 >= 0.9.0,
+-		  champlain-gtk-0.10 >= 0.9.0,
++		[ champlain-0.12 >= 0.9.0,
++		  champlain-gtk-0.12 >= 0.9.0,
+ 		  clutter-gtk-1.0 >= 0.90,
+ 		  libexif >= 0.6.16 ],
+ 		[],[have_libchamplain=no])
