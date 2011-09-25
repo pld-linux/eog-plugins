@@ -2,7 +2,7 @@ Summary:	A collection of plugins for the EOG image viewer
 Summary(pl.UTF-8):	Zestaw wtyczek do przeglądarki obrazków EOG
 Name:		eog-plugins
 Version:	3.1.3
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/eog-plugins/3.1/%{name}-%{version}.tar.xz
@@ -99,6 +99,7 @@ rm -rf $RPM_BUILD_ROOT
 %{pluginsdir}/postasa.plugin
 %{_datadir}/eog/plugins/postasa
 
+%dir %{pluginsdir}/pythonconsole
 %{pluginsdir}/pythonconsole/*.py*
 %{pluginsdir}/pythonconsole.plugin
 
