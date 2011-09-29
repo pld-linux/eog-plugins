@@ -1,22 +1,22 @@
 Summary:	A collection of plugins for the EOG image viewer
 Summary(pl.UTF-8):	Zestaw wtyczek do przeglądarki obrazków EOG
 Name:		eog-plugins
-Version:	3.0.0
+Version:	3.2.0
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/eog-plugins/3.0/%{name}-%{version}.tar.bz2
-# Source0-md5:	edb9077cce66e3969c62c084d446c495
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/eog-plugins/3.2/%{name}-%{version}.tar.xz
+# Source0-md5:	ca2f678971ac495c7bd58f571015d647
 Patch0:		%{name}-configure.patch
 URL:		http://live.gnome.org/EyeOfGnome/Plugins
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	clutter-gtk-devel >= 0.10.0
-BuildRequires:	eog-devel >= 3.0.0
+BuildRequires:	eog-devel >= 3.2.0
 BuildRequires:	gettext-devel
 BuildRequires:	gtk+3-devel >= 3.0.0
 BuildRequires:	intltool >= 0.40.0
-BuildRequires:	libchamplain-devel >= 0.10.0
+BuildRequires:	libchamplain-devel >= 0.12.0
 BuildRequires:	libexif-devel >= 0.6.16
 BuildRequires:	libgdata-devel >= 0.8.0
 BuildRequires:	libpeas-devel >= 1.0.0
@@ -25,10 +25,12 @@ BuildRequires:	pkgconfig
 BuildRequires:	python-devel >= 1:2.3
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.592
+BuildRequires:	tar >= 1:1.22
+BuildRequires:	xz
 Requires(post,postun):	glib2 >= 1:2.26.0
-Requires:	eog >= 3.0.0
+Requires:	eog >= 3.2.0
 Suggests:	postr
-Suggests:	python-pygobject >= 2.28.0
+Suggests:	python-pygobject3 >= 3.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		pluginsdir	%{_libdir}/eog/plugins
@@ -81,8 +83,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/glib-2.0/schemas/org.gnome.eog.plugins.exif-display.gschema.xml
 
 %attr(755,root,root) %{pluginsdir}/libexif-display.so
-%{pluginsdir}/exif-display
 %{pluginsdir}/exif-display.plugin
+%{_datadir}/eog/plugins/exif-display
 
 %attr(755,root,root) %{pluginsdir}/libfit-to-width.so
 %{pluginsdir}/fit-to-width.plugin
@@ -93,8 +95,12 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{pluginsdir}/libpostr.so
 %{pluginsdir}/postr.plugin
 
-%{pluginsdir}/console.py[co]
-%{pluginsdir}/pythonconsole.py[co]
+%attr(755,root,root) %{pluginsdir}/libpostasa.so
+%{pluginsdir}/postasa.plugin
+%{_datadir}/eog/plugins/postasa
+
+%dir %{pluginsdir}/pythonconsole
+%{pluginsdir}/pythonconsole/*.py*
 %{pluginsdir}/pythonconsole.plugin
 
 %attr(755,root,root) %{pluginsdir}/libsend-by-mail.so
