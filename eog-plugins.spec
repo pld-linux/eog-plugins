@@ -1,19 +1,19 @@
 Summary:	A collection of plugins for the EOG image viewer
 Summary(pl.UTF-8):	Zestaw wtyczek do przeglądarki obrazków EOG
 Name:		eog-plugins
-Version:	3.4.1
+Version:	3.6.0
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/eog-plugins/3.4/%{name}-%{version}.tar.xz
-# Source0-md5:	d098ffe1cdde569d664294c41d07fcf3
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/eog-plugins/3.6/%{name}-%{version}.tar.xz
+# Source0-md5:	c0138db3110e73b08ea8544cd7fcf8cd
 Patch0:		%{name}-configure.patch
 URL:		http://live.gnome.org/EyeOfGnome/Plugins
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	clutter-devel >= 1.9.4
 BuildRequires:	clutter-gtk-devel >= 1.1.2
-BuildRequires:	eog-devel >= 3.4.0
+BuildRequires:	eog-devel >= 3.6.0
 BuildRequires:	gettext-devel
 BuildRequires:	gsettings-desktop-schemas-devel
 BuildRequires:	gtk+3-devel >= 3.0.0
@@ -30,7 +30,7 @@ BuildRequires:	rpmbuild(macros) >= 1.592
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires(post,postun):	glib2 >= 1:2.26.0
-Requires:	eog >= 3.4.0
+Requires:	eog >= 3.6.0
 Suggests:	postr
 Suggests:	python-pygobject3 >= 3.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -67,6 +67,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 %{__rm} $RPM_BUILD_ROOT%{pluginsdir}/*.{la,py}
+%{__rm} $RPM_BUILD_ROOT%{pluginsdir}/pythonconsole/*.py
 
 %find_lang eog-plugins
 
@@ -83,6 +84,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %{_datadir}/glib-2.0/schemas/org.gnome.eog.plugins.exif-display.gschema.xml
+%{_datadir}/glib-2.0/schemas/org.gnome.eog.plugins.export-to-folder.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.eog.plugins.fullscreenbg.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.eog.plugins.pythonconsole.gschema.xml
 
@@ -110,12 +112,23 @@ rm -rf $RPM_BUILD_ROOT
 
 %dir %{pluginsdir}/pythonconsole
 %dir %{_datadir}/eog/plugins/pythonconsole
-%{pluginsdir}/pythonconsole/*.py*
 %{pluginsdir}/pythonconsole.plugin
+%{pluginsdir}/pythonconsole/*.py[co]
 %{_datadir}/eog/plugins/pythonconsole/config.ui
 
 %attr(755,root,root) %{pluginsdir}/libsend-by-mail.so
 %{pluginsdir}/send-by-mail.plugin
 
-%{pluginsdir}/slideshowshuffle.py[co]
 %{pluginsdir}/slideshowshuffle.plugin
+%{pluginsdir}/slideshowshuffle.py[co]
+
+%dir %{_datadir}/eog/plugins/export-to-folder
+%{pluginsdir}/export-to-folder.plugin
+%{pluginsdir}/export-to-folder.py[co]
+%{_datadir}/eog/plugins/export-to-folder/preferences_dialog.ui
+
+%attr(755,root,root) %{pluginsdir}/libhide-titlebar.so
+%{pluginsdir}/hide-titlebar.plugin
+
+%attr(755,root,root) %{pluginsdir}/liblight-theme.so
+%{pluginsdir}/light-theme.plugin
