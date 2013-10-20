@@ -1,22 +1,23 @@
 Summary:	A collection of plugins for the EOG image viewer
 Summary(pl.UTF-8):	Zestaw wtyczek do przeglądarki obrazków EOG
 Name:		eog-plugins
-Version:	3.6.1
+Version:	3.10.1
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/eog-plugins/3.6/%{name}-%{version}.tar.xz
-# Source0-md5:	1bcad92742f8806527089bae9ae1e7b8
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/eog-plugins/3.10/%{name}-%{version}.tar.xz
+# Source0-md5:	c53640fcbaa060d263738b3e760f7869
 Patch0:		%{name}-configure.patch
 URL:		http://live.gnome.org/EyeOfGnome/Plugins
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	clutter-devel >= 1.9.4
 BuildRequires:	clutter-gtk-devel >= 1.1.2
-BuildRequires:	eog-devel >= 3.6.0
+BuildRequires:	eog-devel >= 3.10.0
 BuildRequires:	gettext-devel
+BuildRequires:	glib2-devel >= 1:2.32.0
 BuildRequires:	gsettings-desktop-schemas-devel
-BuildRequires:	gtk+3-devel >= 3.0.0
+BuildRequires:	gtk+3-devel >= 3.4.0
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libchamplain-devel >= 0.12.0
 BuildRequires:	libexif-devel >= 0.6.16
@@ -30,7 +31,11 @@ BuildRequires:	rpmbuild(macros) >= 1.592
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires(post,postun):	glib2 >= 1:2.26.0
-Requires:	eog >= 3.6.0
+Requires:	eog >= 3.10.0
+Requires:	glib2 >= 1:2.32.0
+Requires:	gtk+3 >= 3.4.0
+Suggests:	libpeas-gtk
+Suggests:	libpeas-loader-python
 Suggests:	postr
 Suggests:	python-pygobject3 >= 3.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -90,7 +95,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %attr(755,root,root) %{pluginsdir}/libexif-display.so
 %{pluginsdir}/exif-display.plugin
-%{_datadir}/eog/plugins/exif-display
 
 %attr(755,root,root) %{pluginsdir}/libfit-to-width.so
 %{pluginsdir}/fit-to-width.plugin
@@ -108,7 +112,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %attr(755,root,root) %{pluginsdir}/libpostasa.so
 %{pluginsdir}/postasa.plugin
-%{_datadir}/eog/plugins/postasa
 
 %dir %{pluginsdir}/pythonconsole
 %dir %{_datadir}/eog/plugins/pythonconsole
