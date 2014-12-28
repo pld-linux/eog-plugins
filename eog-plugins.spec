@@ -14,7 +14,7 @@ BuildRequires:	automake >= 1:1.9
 BuildRequires:	clutter-devel >= 1.9.4
 BuildRequires:	clutter-gtk-devel >= 1.1.2
 BuildRequires:	eog-devel >= 3.10.0
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= 1:2.32.0
 BuildRequires:	gsettings-desktop-schemas-devel
 BuildRequires:	gtk+3-devel >= 3.4.0
