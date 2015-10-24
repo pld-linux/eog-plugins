@@ -25,7 +25,7 @@ BuildRequires:	libgdata-devel >= 0.8.0
 BuildRequires:	libpeas-devel >= 1.0.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
-BuildRequires:	python-devel >= 1:2.3
+BuildRequires:	python3-devel >= 1:2.3
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.592
 BuildRequires:	tar >= 1:1.22
@@ -93,6 +93,22 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/glib-2.0/schemas/org.gnome.eog.plugins.fullscreenbg.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.eog.plugins.pythonconsole.gschema.xml
 
+%{_datadir}/appdata/eog-exif-display.metainfo.xml
+%{_datadir}/appdata/eog-export-to-folder.metainfo.xml
+%{_datadir}/appdata/eog-fit-to-width.metainfo.xml
+%{_datadir}/appdata/eog-fullscreenbg.metainfo.xml
+%{_datadir}/appdata/eog-hide-titlebar.metainfo.xml
+%{_datadir}/appdata/eog-light-theme.metainfo.xml
+%{_datadir}/appdata/eog-map.metainfo.xml
+%{_datadir}/appdata/eog-maximize-windows.metainfo.xml
+%{_datadir}/appdata/eog-postasa.metainfo.xml
+%{_datadir}/appdata/eog-postr.metainfo.xml
+%{_datadir}/appdata/eog-pythonconsole.metainfo.xml
+%{_datadir}/appdata/eog-send-by-mail.metainfo.xml
+%{_datadir}/appdata/eog-slideshowshuffle.metainfo.xml
+
+%dir %{pluginsdir}/__pycache__
+
 %attr(755,root,root) %{pluginsdir}/libexif-display.so
 %{pluginsdir}/exif-display.plugin
 
@@ -101,7 +117,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %dir %{_datadir}/eog/plugins/fullscreenbg
 %{pluginsdir}/fullscreenbg.plugin
-%{pluginsdir}/fullscreenbg.py[co]
+%{pluginsdir}/__pycache__/fullscreenbg*.pyc
 %{_datadir}/eog/plugins/fullscreenbg/preferences_dialog.ui
 
 %attr(755,root,root) %{pluginsdir}/libmap.so
@@ -113,21 +129,23 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{pluginsdir}/libpostasa.so
 %{pluginsdir}/postasa.plugin
 
-%dir %{pluginsdir}/pythonconsole
-%dir %{_datadir}/eog/plugins/pythonconsole
+%{pluginsdir}/maximize-windows.plugin
+%{pluginsdir}/__pycache__/maximize-windows*.pyc
+
+%{pluginsdir}/pythonconsole
 %{pluginsdir}/pythonconsole.plugin
-%{pluginsdir}/pythonconsole/*.py[co]
+%dir %{_datadir}/eog/plugins/pythonconsole
 %{_datadir}/eog/plugins/pythonconsole/config.ui
 
 %attr(755,root,root) %{pluginsdir}/libsend-by-mail.so
 %{pluginsdir}/send-by-mail.plugin
 
 %{pluginsdir}/slideshowshuffle.plugin
-%{pluginsdir}/slideshowshuffle.py[co]
+%{pluginsdir}/__pycache__/slideshowshuffle*.pyc
 
 %dir %{_datadir}/eog/plugins/export-to-folder
 %{pluginsdir}/export-to-folder.plugin
-%{pluginsdir}/export-to-folder.py[co]
+%{pluginsdir}/__pycache__/export-to-folder*.pyc
 %{_datadir}/eog/plugins/export-to-folder/preferences_dialog.ui
 
 %attr(755,root,root) %{pluginsdir}/libhide-titlebar.so
