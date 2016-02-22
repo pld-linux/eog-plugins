@@ -1,40 +1,44 @@
 Summary:	A collection of plugins for the EOG image viewer
 Summary(pl.UTF-8):	Zestaw wtyczek do przeglądarki obrazków EOG
 Name:		eog-plugins
-Version:	3.16.2
+Version:	3.16.3
 Release:	1
-License:	GPL v2
+License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/eog-plugins/3.16/%{name}-%{version}.tar.xz
-# Source0-md5:	b35affa583bf851ee275249965ab069f
+# Source0-md5:	d116f2c181906c44d305f94624345f43
 Patch0:		%{name}-configure.patch
 URL:		http://live.gnome.org/EyeOfGnome/Plugins
 BuildRequires:	autoconf >= 2.59
-BuildRequires:	automake >= 1:1.9
+BuildRequires:	automake >= 1:1.11
 BuildRequires:	clutter-devel >= 1.9.4
 BuildRequires:	clutter-gtk-devel >= 1.1.2
-BuildRequires:	eog-devel >= 3.10.0
+BuildRequires:	eog-devel >= 3.16.0
 BuildRequires:	gettext-tools
-BuildRequires:	glib2-devel >= 1:2.32.0
+BuildRequires:	glib2-devel >= 1:2.38.0
 BuildRequires:	gsettings-desktop-schemas-devel
-BuildRequires:	gtk+3-devel >= 3.4.0
-BuildRequires:	intltool >= 0.40.0
+BuildRequires:	gtk+3-devel >= 3.14.0
+BuildRequires:	intltool >= 0.50.1
 BuildRequires:	libchamplain-devel >= 0.12.0
-BuildRequires:	libexif-devel >= 0.6.16
+BuildRequires:	libexif-devel >= 1:0.6.16
 BuildRequires:	libgdata-devel >= 0.8.0
 BuildRequires:	libpeas-devel >= 1.0.0
-BuildRequires:	libtool
+BuildRequires:	libtool >= 2:2.2.6
 BuildRequires:	pkgconfig
-BuildRequires:	python3-devel >= 1:2.3
+BuildRequires:	python3-devel >= 1:3.2
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.592
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
-Requires(post,postun):	glib2 >= 1:2.26.0
-Requires:	eog >= 3.10.0
-Requires:	glib2 >= 1:2.32.0
-Requires:	gtk+3 >= 3.4.0
-Suggests:	libpeas-gtk
+Requires(post,postun):	glib2 >= 1:2.38.0
+Requires:	clutter >= 1.9.4
+Requires:	clutter-gtk >= 1.1.2
+Requires:	eog >= 3.16.0
+Requires:	glib2 >= 1:2.38.0
+Requires:	gtk+3 >= 3.14.0
+Requires:	libchamplain >= 0.12.0
+Requires:	libexif >= 1:0.6.16
+Suggests:	libpeas-gtk >= 1.0.0
 Suggests:	libpeas-loader-python
 Suggests:	postr
 Suggests:	python-pygobject3 >= 3.0.0
@@ -57,11 +61,12 @@ GNOME (Oko GNOME).
 %build
 %{__intltoolize}
 %{__libtoolize}
-%{__aclocal}
+%{__aclocal} -I m4
 %{__autoconf}
 %{__autoheader}
 %{__automake}
 %configure \
+	POSTR=/usr/bin/postr \
 	--disable-silent-rules
 %{__make}
 
