@@ -1,12 +1,12 @@
 Summary:	A collection of plugins for the EOG image viewer
 Summary(pl.UTF-8):	Zestaw wtyczek do przeglądarki obrazków EOG
 Name:		eog-plugins
-Version:	3.16.4
+Version:	3.16.5
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/eog-plugins/3.16/%{name}-%{version}.tar.xz
-# Source0-md5:	74a7f556b93a50b8ed5724df93855c58
+# Source0-md5:	71448d7fad1964eaf28f1a3612a40e78
 Patch0:		%{name}-configure.patch
 URL:		http://live.gnome.org/EyeOfGnome/Plugins
 BuildRequires:	autoconf >= 2.59
