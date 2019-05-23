@@ -1,12 +1,12 @@
 Summary:	A collection of plugins for the EOG image viewer
 Summary(pl.UTF-8):	Zestaw wtyczek do przeglądarki obrazków EOG
 Name:		eog-plugins
-Version:	3.16.6
+Version:	3.26.3
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/eog-plugins/3.16/%{name}-%{version}.tar.xz
-# Source0-md5:	6d09ee12dcbc1569a4ac1bed5cc0d2cd
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/eog-plugins/3.26/%{name}-%{version}.tar.xz
+# Source0-md5:	99fef70b535c1fdaded93576cd6ef1bf
 Patch0:		%{name}-configure.patch
 URL:		http://live.gnome.org/EyeOfGnome/Plugins
 BuildRequires:	autoconf >= 2.59
@@ -14,14 +14,13 @@ BuildRequires:	automake >= 1:1.11
 BuildRequires:	clutter-devel >= 1.9.4
 BuildRequires:	clutter-gtk-devel >= 1.1.2
 BuildRequires:	eog-devel >= 3.16.0
-BuildRequires:	gettext-tools
+BuildRequires:	gettext-tools >= 0.19.7
 BuildRequires:	glib2-devel >= 1:2.38.0
 BuildRequires:	gsettings-desktop-schemas-devel
 BuildRequires:	gtk+3-devel >= 3.14.0
-BuildRequires:	intltool >= 0.50.1
 BuildRequires:	libchamplain-devel >= 0.12.0
 BuildRequires:	libexif-devel >= 1:0.6.16
-BuildRequires:	libgdata-devel >= 0.8.0
+BuildRequires:	libgdata-devel >= 0.9.1
 BuildRequires:	libpeas-devel >= 1.0.0
 BuildRequires:	libtool >= 2:2.2.6
 BuildRequires:	pkgconfig
@@ -38,6 +37,7 @@ Requires:	glib2 >= 1:2.38.0
 Requires:	gtk+3 >= 3.14.0
 Requires:	libchamplain >= 0.12.0
 Requires:	libexif >= 1:0.6.16
+Requires:	libgdata >= 0.9.1
 Suggests:	libpeas-gtk >= 1.0.0
 Suggests:	libpeas-loader-python
 Suggests:	postr
@@ -59,7 +59,6 @@ GNOME (Oko GNOME).
 %patch0 -p1
 
 %build
-%{__intltoolize}
 %{__libtoolize}
 %{__aclocal} -I m4
 %{__autoconf}
