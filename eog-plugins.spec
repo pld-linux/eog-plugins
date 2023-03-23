@@ -5,12 +5,12 @@
 Summary:	A collection of plugins for the EOG image viewer
 Summary(pl.UTF-8):	Zestaw wtyczek do przeglądarki obrazków EOG
 Name:		eog-plugins
-Version:	42.2
+Version:	42.3
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	https://download.gnome.org/sources/eog-plugins/42/%{name}-%{version}.tar.xz
-# Source0-md5:	16e5cce357d575b1b08ef6a8b0fa4c80
+# Source0-md5:	5e769523d121061eed4f402c5e8caa11
 URL:		https://wiki.gnome.org/Apps/EyeOfGnome
 BuildRequires:	clutter-devel >= 1.9.4
 BuildRequires:	clutter-gtk-devel >= 1.1.2
